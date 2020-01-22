@@ -35,6 +35,24 @@ if mmm == 'median':
         print("The median is: ", x[z])
 
 if mmm == 'mode':
-    x = sorted(list_numbers)
-    print("The mode is: ", max(set(x), key = x.count))
+    d = {}
+    for key in list_numbers:
+        if key in d:
+            d[key] += 1
+        else: 
+            d[key] = 1
+
+    greatest_value =  0 
+    greatest_key = None
+
+    for key in d:
+        if d[key] > greatest_value:
+            greatest_key = key
+            greatest_value = d[key]
     
+    print("The mode is: ", greatest_key)
+
+
+    # d = {x:list_numbers.count(x) for x in list_numbers}
+    # print(max(d, key=d.get))
+
